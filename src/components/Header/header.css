@@ -3,11 +3,12 @@
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #ebebeb;
+    height: 2%;
   }
   
   .header h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 1rem;
     color: #333;
   }
   

@@ -1,8 +1,9 @@
 .home {
-  width: 60%;
+  width: 30%;
   margin: 0 auto;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   border-radius: 10px;
   background-color: #f7f7f7;
+  margin-top: 20px;
 }
