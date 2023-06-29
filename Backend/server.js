@@ -7,10 +7,10 @@ app.use(cors());
 
 // Créer une connexion à la base de données
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root", // remplacer par votre nom d'utilisateur MySQL
-  password: "Azertyui8@", // remplacer par votre mot de passe MySQL
-  database: "Torah_Quiz",
+  host: "database-torah-quiz.cwjgekl2r5ns.eu-north-1.rds.amazonaws.com",
+  user: "Ichai_wiz", // remplacer par votre nom d'utilisateur MySQL
+  password: "Azertyui8", // remplacer par votre mot de passe MySQL
+  database: "torah_quiz_db",
 });
 
 // Connecter à la base de données
