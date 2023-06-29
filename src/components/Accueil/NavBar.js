@@ -93,7 +93,7 @@ const handleCategorySelect = (category) => {
   React.useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
-        fetch(`http://localhost:5000/search?q=${searchTerm}`)
+        fetch(`https://localhost:5000/search?q=${searchTerm}`)
           .then(response => response.json())
           .then(data => {
             setSearchResults(data);

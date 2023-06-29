@@ -24,7 +24,7 @@ export default function GroupedSelect({ isCategoryFromSearch, onCategorySelect }
 
 
   useEffect(() => {
-    fetch('http://glittery-alpaca-f931ea.netlify.app:5000/categories')
+    fetch('https://localhost:5000/categories')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error fetching categories:', error));
@@ -32,7 +32,7 @@ export default function GroupedSelect({ isCategoryFromSearch, onCategorySelect }
 
   useEffect(() => {
     if (selectedCategory) {
-      fetch(`http://glittery-alpaca-f931ea.netlify.app:5000/sub_categories?category_id=${selectedCategory.id}`)
+      fetch(`https://localhost:5000/sub_categories?category_id=${selectedCategory.id}`)
         .then(response => response.json())
         .then(data => setSubCategories(data))
         .catch(error => console.error('Error fetching subcategories:', error));
@@ -42,7 +42,7 @@ export default function GroupedSelect({ isCategoryFromSearch, onCategorySelect }
 
 useEffect(() => {
   if (selectedSubCategory) {
-      fetch(`http://glittery-alpaca-f931ea.netlify.app:5000/sub_sub_categories?sub_category_id=${selectedSubCategory.id}`) // Utilisez .id ici
+      fetch(`https://localhost:5000/sub_sub_categories?sub_category_id=${selectedSubCategory.id}`) // Utilisez .id ici
           .then(response => response.json())
           .then(data => setSubSubCategories(data))
           .catch(error => console.error('Error fetching sub-subcategories:', error));
@@ -51,7 +51,7 @@ useEffect(() => {
 
 useEffect(() => {
   if (selectedSubSubCategory) {
-    fetch(`http://glittery-alpaca-f931ea.netlify.app:5000/sub_sub_sub_categories?sub_sub_category_id=${selectedSubSubCategory.id}`) // Modifiez ceci pour utiliser .id
+    fetch(`https://localhost:5000/sub_sub_sub_categories?sub_sub_category_id=${selectedSubSubCategory.id}`) // Modifiez ceci pour utiliser .id
       .then(response => response.json())
       .then(data => setSubSubSubCategories(data))
       .catch(error => console.error('Error fetching sub-sub-subcategories:', error));

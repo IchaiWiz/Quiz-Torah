@@ -6,7 +6,7 @@ const HomeBody = () => {
 
   useEffect(() => {
     console.log('Fetching random category...');
-    fetch('http://localhost:5000/random_category') // <-- Notez que j'ai ajouté "http://localhost:5000"
+    fetch('https://localhost:5000/random_category') // <-- Notez que j'ai ajouté "http://localhost:5000"
       .then(response => {
         console.log('Response received:', response);
         if (!response.ok) {
