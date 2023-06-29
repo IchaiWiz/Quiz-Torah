@@ -92,7 +92,7 @@ useEffect(() => {
           }}
           sx={{ color: "white" }}
         >
-          <MenuItem value=""><em>Je m'arrête ici...</em></MenuItem>
+          <MenuItem value=""><em>Je m'arrête ici wesh</em></MenuItem>
           {categories.map((category) => (
             <MenuItem key={category.id} value={category.id}>{category.name}</MenuItem>
           ))}
