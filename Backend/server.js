@@ -7,11 +7,12 @@ app.use(cors());
 
 // Créer une connexion à la base de données
 const db = mysql.createConnection({
-  host: "database-torah-quiz.cwjgekl2r5ns.eu-north-1.rds.amazonaws.com",
-  user: "Ichai_wiz", // remplacer par votre nom d'utilisateur MySQL
-  password: "Azertyui8", // remplacer par votre mot de passe MySQL
-  database: "torah_quiz_db",
+  host: "database-torah-quiz.cwjgekl2r5ns.eu-north-1.rds.amazonaws.com", // Le point de terminaison de votre base de données RDS
+  user: "Ichai_wiz", // Le nom d'utilisateur de votre base de données RDS
+  password: "Azertyui8", // Le mot de passe de votre base de données RDS
+  database: "torah_quiz_db", // Le nom de votre base de données dans RDS
 });
+
 
 // Connecter à la base de données
 db.connect((err) => {
