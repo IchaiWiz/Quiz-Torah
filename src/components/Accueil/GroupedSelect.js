@@ -24,7 +24,7 @@ export default function GroupedSelect({ isCategoryFromSearch, onCategorySelect }
 
 
   useEffect(() => {
-    fetch('https://localhost:5000/categories')
+    fetch('http://localhost:5000/categories')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error fetching categories:', error));
@@ -32,7 +32,7 @@ export default function GroupedSelect({ isCategoryFromSearch, onCategorySelect }
 
   useEffect(() => {
     if (selectedCategory) {
-      fetch(`https://localhost:5000/sub_categories?category_id=${selectedCategory.id}`)
+      fetch(`http://localhost:5000/sub_categories?category_id=${selectedCategory.id}`)
         .then(response => response.json())
         .then(data => setSubCategories(data))
         .catch(error => console.error('Error fetching subcategories:', error));
@@ -42,7 +42,7 @@ export default function GroupedSelect({ isCategoryFromSearch, onCategorySelect }
 
 useEffect(() => {
   if (selectedSubCategory) {
-      fetch(`https://localhost:5000/sub_sub_categories?sub_category_id=${selectedSubCategory.id}`) // Utilisez .id ici
+      fetch(`http://localhost:5000/sub_sub_categories?sub_category_id=${selectedSubCategory.id}`) // Utilisez .id ici
           .then(response => response.json())
           .then(data => setSubSubCategories(data))
           .catch(error => console.error('Error fetching sub-subcategories:', error));
@@ -51,7 +51,7 @@ useEffect(() => {
 
 useEffect(() => {
   if (selectedSubSubCategory) {
-    fetch(`https://localhost:5000/sub_sub_sub_categories?sub_sub_category_id=${selectedSubSubCategory.id}`) // Modifiez ceci pour utiliser .id
+    fetch(`http://localhost:5000/sub_sub_sub_categories?sub_sub_category_id=${selectedSubSubCategory.id}`) // Modifiez ceci pour utiliser .id
       .then(response => response.json())
       .then(data => setSubSubSubCategories(data))
       .catch(error => console.error('Error fetching sub-sub-subcategories:', error));
@@ -73,7 +73,9 @@ useEffect(() => {
 
 
   return (
-    <div>
+      <div>
+      {console.log('categories:', categories)}
+      {selectedCategory && console.log('selectedCategory:', selectedCategory)}
       <FormControl sx={{ m: 1, minWidth: 120, borderColor: 'white !important', border: 2, borderRadius: 1 }}>
         <InputLabel shrink htmlFor="grouped-select-category"></InputLabel>
         <Select
@@ -92,12 +94,13 @@ useEffect(() => {
           }}
           sx={{ color: "white" }}
         >
-          <MenuItem value=""><em>Je m'arrête ici wesh</em></MenuItem>
+          <MenuItem value=""><em>Je m'arrête ici ...</em></MenuItem>
           {categories.map((category) => (
             <MenuItem key={category.id} value={category.id}>{category.name}</MenuItem>
           ))}
         </Select>
       </FormControl>
+
 
       {selectedCategory && !isCategoryFromSearch && (
         <FormControl sx={{ m: 1, minWidth: 120, borderColor: 'white !important', border: 2, borderRadius: 1 }}>
@@ -115,7 +118,7 @@ useEffect(() => {
             }}
             sx={{ color: "white" }}
           >
-            <MenuItem value=""><em>Je m'arrête ici...</em></MenuItem>
+            <MenuItem value=""><em>Je m'arrête ici ...</em></MenuItem>
             {subCategories.map((subCategory) => (
               <MenuItem key={subCategory.id} value={subCategory.id}>{subCategory.name}</MenuItem>
             ))}

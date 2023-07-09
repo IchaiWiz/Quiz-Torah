@@ -6,7 +6,7 @@ const HomeBody = () => {
 
   useEffect(() => {
     console.log('Fetching random category...');
-    fetch('https://localhost:5000/random_category') // <-- Notez que j'ai ajouté "http://localhost:5000"
+    fetch('http://localhost:5000/random_category') // <-- Notez que j'ai ajouté "http://localhost:5000"
       .then(response => {
         console.log('Response received:', response);
         if (!response.ok) {
@@ -26,7 +26,7 @@ const HomeBody = () => {
   
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', paddingTop: '15px' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', paddingTop: '35px', paddingBottom: '15px' }}>
       {randomCategory && (
         <QuizCard
           title={randomCategory.name}

@@ -93,7 +93,7 @@ const handleCategorySelect = (category) => {
   React.useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
-        fetch(`https://localhost:5000/search?q=${searchTerm}`)
+        fetch(`http://localhost:5000/search?q=${searchTerm}`)
           .then(response => response.json())
           .then(data => {
             setSearchResults(data);
@@ -113,6 +113,7 @@ const handleCategorySelect = (category) => {
     <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
             <Toolbar>
+            <MyDrawer />
                 <Typography
                     variant="h6"
                     noWrap
@@ -120,7 +121,7 @@ const handleCategorySelect = (category) => {
                     sx={{ display: { xs: "none", sm: "block" } }}
                 >
                     Choisissez votre quiz :
-                </Typography>
+                </Typography> 
                 <GroupedSelect isCategoryFromSearch={isCategoryFromSearch} onCategorySelect={handleCategorySelect} />
 
                 <Search ref={anchorRef}>
@@ -134,7 +135,6 @@ const handleCategorySelect = (category) => {
                         onChange={handleSearchChange}
                     />
                 </Search>
-                <MyDrawer />
             </Toolbar>
             <Popper open={open} anchorEl={anchorRef.current} placement="bottom-start">
                 <ClickAwayListener onClickAway={handleClose}>
